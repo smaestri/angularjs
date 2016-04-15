@@ -1,0 +1,12 @@
+<script src="../angularjs.js"></script>
+<script src="testscope.js"></script>
+<body ng-app="scopeExample">
+<div ng-controller="MyController">
+    Your name:
+    <input type="text" ng-model="username">
+    <button ng-click='sayHello()'>greet</button>
+    <hr>
+    {{greeting}}
+</div>
+</body>
+
