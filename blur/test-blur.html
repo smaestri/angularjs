@@ -1,0 +1,14 @@
+<html ng-app="myModule">
+
+<div ng-controller="MyCtrl3" ng-dblclick="editCell()">CLICK ME<br><br>
+    <span ng-show="!showInput">TEST</span><br><br>
+    <input ng-blur="saveEdit()"
+           ng-model="inputValue"
+           ng-show="showInput"
+    >
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="../angular.min.js"></script>
+<script src="test-blur.js"></script>
+
+</html>

@@ -1,0 +1,1 @@
+Demonstrate using of scopes in angular
