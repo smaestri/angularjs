@@ -1,0 +1,85 @@
+.horizontal-barchart-cls {
+  font-family: Inconsolata, Monaco, Menlo, Consolas, "Courier New", monospace;
+  /* Style northward tooltips differently */
+}
+.horizontal-barchart-cls .bg-rect {
+  fill: #99999a;
+  cursor: pointer;
+}
+.horizontal-barchart-cls .primaryBar rect.transparentBar,
+.horizontal-barchart-cls .secondaryBar rect.transparentBar {
+  fill: #e1eff2;
+}
+.horizontal-barchart-cls .primaryBar rect.blueBar,
+.horizontal-barchart-cls .secondaryBar rect.blueBar {
+  fill: #266092;
+}
+.horizontal-barchart-cls .primaryBar rect.brownBar,
+.horizontal-barchart-cls .secondaryBar rect.brownBar {
+  fill: #B3AF76;
+}
+.horizontal-barchart-cls .label {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: .8em;
+  padding-top: 3px;
+  padding-left: 10px;
+  font-family: Inconsolata, Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+.horizontal-barchart-cls .label.blueBar {
+  color: #b6be00;
+}
+.horizontal-barchart-cls .label.brownBar {
+  color: #55580D;
+}
+.horizontal-barchart-cls .grid {
+  shape-rendering: crispEdges;
+}
+.horizontal-barchart-cls .grid path {
+  fill: none;
+}
+.horizontal-barchart-cls .grid line {
+  stroke: #6c6769;
+  stroke-opacity: .1;
+}
+.horizontal-barchart-cls .grid text {
+  font-size: .8em;
+  fill: #99999a;
+}
+.horizontal-barchart-cls .hiddenChars {
+  background-color: #E9E9E9;
+  border: 1px dotted #BABABA;
+  white-space: pre;
+}
+.horizontal-barchart-cls.d3-tip {
+  line-height: 1;
+  font-size: .8em;
+  font-weight: 400;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  border-radius: 2px;
+  z-index: 100000;
+  right: 15px;
+}
+.horizontal-barchart-cls.d3-tip:after {
+  /* Creates a small triangle extender for the tooltip */
+  box-sizing: border-box;
+  display: inline;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+.horizontal-barchart-cls.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}

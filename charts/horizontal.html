@@ -1,12 +1,28 @@
 <html ng-app="myModule">
+<head>
+    <link href="horizontal-barchart.css" rel="stylesheet"></head>
+</head>
 <div ng-controller="MyCtrl">
 
+    <horizontal-barchart id="hBarChart"
+                         width="300"
+                         height="400"
+                         key-field="formattedValue"
+                         key-label="Occurrences"
+                         primary-data=[{"formattedValue":"male","occurrences":6,"data":"male"},{"formattedValue":"female","occurrences":3,"data":"female"}]
+                         primary-value-field="occurrences"
+                         primary-bar-class=""
+                         secondary-data=[{"formattedValue":"male","filteredOccurrences":6},{"formattedValue":"female","filteredOccurrences":3}]
+                         secondary-value-field="filteredOccurrences"
+                         secondary-bar-class="blueBar"
+                         tooltip-content="MyCtrl.getTooltip(keyLabel, key, primaryValue, secondaryValue)"
+    ></horizontal-barchart>
 
 
 </div>
 
 <script src="../angularjs.js"></script>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="d3.js" charset="utf-8"></script>
 <script src="d3-tooltip.js"></script>
 <script src="horizontal.js"></script>
 

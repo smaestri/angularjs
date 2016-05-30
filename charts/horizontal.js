@@ -1,9 +1,11 @@
-var myModule = angular.module('myModule', [$timeout])
+var myModule = angular.module('myModule', [])
 
-    .directive('HorizontalBarchart', function ($timeout) {
+    .directive('horizontalBarchart', function ($timeout) {
+
         return {
             restrict: 'E',
             scope: {
+
                 onClick: '&',
                 keyField: '@',
                 keyLabel: '@',
@@ -16,6 +18,7 @@ var myModule = angular.module('myModule', [$timeout])
                 tooltipContent: '&'
             },
             link: function (scope, element, attrs) {
+
                 var BAR_MIN_WIDTH = 3;
                 var containerId = '#' + attrs.id;
                 var renderPrimaryTimeout, renderSecondaryTimeout;
@@ -23,6 +26,14 @@ var myModule = angular.module('myModule', [$timeout])
                 // Define chart sizes and margin
                 var margin = {top: 15, right: 20, bottom: 10, left: 10};
                 var containerWidth = +attrs.width;
+
+                console.log('containerWidth')
+                console.log(containerWidth)
+
+                console.log('scope')
+                console.log(scope)
+              //  scope.primaryData = [{"formattedValue":"male","occurrences":6,"data":"male"},{"formattedValue":"female","occurrences":3,"data":"female"}];
+              //  scope.secondaryData = [{"formattedValue":"male","filteredOccurrences":6},{"formattedValue":"female","filteredOccurrences":3}]
 
                 //------------------------------------------------------------------------------------------------------
                 //----------------------------------------------- Tooltip ----------------------------------------------
@@ -48,6 +59,7 @@ var myModule = angular.module('myModule', [$timeout])
                 }
 
                 function getPrimaryValue(data) {
+                    console.log()
                     return data[scope.primaryValueField];
                 }
 
@@ -234,6 +246,10 @@ var myModule = angular.module('myModule', [$timeout])
                     var width = containerWidth - margin.left - margin.right;
                     var height = containerHeight - margin.top - margin.bottom;
 
+                    console.log("width height")
+                    console.log(containerWidth)
+                    console.log(containerHeight)
+
                     initScales(width, height);
                     configureScales(firstVisuData);
                     initAxes(height);
@@ -260,11 +276,14 @@ var myModule = angular.module('myModule', [$timeout])
                 var oldVisuData;
                 scope.$watchGroup(['primaryData', 'secondaryData'],
                     function (newValues) {
+                        console.log('$watchGroup')
+                        console.log(newValues)
                         var firstVisuData = newValues[0];
                         var secondVisuData = newValues[1];
                         var firstDataHasChanged = firstVisuData !== oldVisuData;
 
                         if (firstDataHasChanged) {
+                            console.log('firstDataHasChanged')
                             oldVisuData = firstVisuData;
                             element.empty();
                             //because the tooltip is not a child of the horizontal barchart element
@@ -287,12 +306,12 @@ var myModule = angular.module('myModule', [$timeout])
                     $timeout.cancel(renderSecondaryTimeout);
                 });
             }
+
         };
+
     })
 
-
     .controller('MyCtrl', function ($scope) {
-
         $scope.getTooltip = function (keyLabel, key, primaryValue, secondaryValue) {
             var title = 'Record';
             var keyString = key;
@@ -354,6 +373,5 @@ var myModule = angular.module('myModule', [$timeout])
                 });
             }
         }
-
-    });
+    })
 

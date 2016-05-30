@@ -1,5 +1,5 @@
 var myModule = angular.module('myModule', [])
-.directive('myComponent', function () {
+.directive('MyComponent', function () {
     return {
         restrict:'E',
         scope:{
